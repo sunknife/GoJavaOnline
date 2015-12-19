@@ -3,17 +3,14 @@ package FiguresArea;
 public class FiguresArea {
 
     public double triangleArea(int height, int base) {
-        double area = 1/2*height*base;
-        return area;
+        return 0.5 * height * base;
     }
 
     public int rectanglArea(int length, int width) {
-        int area = length*width;
-        return area;
+        return length * width;
     }
 
-    public double circleArea(int radius){
-        double area = 3.14*radius*radius;
-        return area;
+    public double circleArea(int radius) {
+        return 3.14 * radius * radius;
     }
 }
