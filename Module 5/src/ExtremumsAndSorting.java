@@ -1,168 +1,160 @@
 public class ExtremumsAndSorting {
-    public int minimalValue(int[] massive) {
-        int minimalElement = massive[0];
-        for (int element : massive) {
-            if (element < minimalElement) {
-                minimalElement = element;
+    public int minimalValue(int[] array) {
+        int minimalElement = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < minimalElement) {
+                minimalElement = array[i];
             }
         }
         return minimalElement;
     }
 
-    public int minimalValue(int[] massive, int leftBound, int rightBound) {
-        int minimalElement = massive[leftBound];
-        for (int i = leftBound; i <= rightBound; i++) {
-            if (massive[i] < minimalElement) {
-                minimalElement = massive[i];
+    public int minimalValue(int[] array, int leftBound, int rightBound) {
+        int minimalElement = array[leftBound];
+        for (int i = leftBound + 1; i <= rightBound; i++) {
+            if (array[i] < minimalElement) {
+                minimalElement = array[i];
             }
         }
         return minimalElement;
     }
 
-    public int maximumValue(int[] massive, int leftBound, int rightBound) {
-        int maximumElement = massive[leftBound];
-        for (int i = leftBound; i <= rightBound; i++) {
-            if (massive[i] > maximumElement) {
-                maximumElement = massive[i];
+    public int maximumValue(int[] array, int leftBound, int rightBound) {
+        int maximumElement = array[leftBound];
+        for (int i = leftBound + 1; i <= rightBound; i++) {
+            if (array[i] > maximumElement) {
+                maximumElement = array[i];
             }
         }
         return maximumElement;
     }
 
-    public int maximumValue(int[] massive) {
-        int maximumElement = massive[0];
-        for (int element : massive) {
-            if (element > maximumElement) {
-                maximumElement = element;
+    public int maximumValue(int[] array) {
+        int maximumElement = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > maximumElement) {
+                maximumElement = array[i];
             }
         }
         return maximumElement;
     }
 
-    public void insertionSort(int[] massive) {
-        for (int i = 1; i < massive.length; i++) {
-            int key = massive[i];
-            if (key < massive[i - 1]) {
-                insertElement(searchForPlace(massive, key, i), massive, i, key);
+    public void insertionSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int key = array[i];
+            if (key < array[i - 1]) {
+                insertElement(searchForPlace(array, key, i), array, i, key);
             }
-            printMassive(massive);
         }
 
     }
 
-    private void insertElement(int place, int[] massive, int index, int key) {
+    private void insertElement(int place, int[] array, int index, int key) {
         for (int i = index; i > place; i--) {
-            massive[i] = massive[i - 1];
+            array[i] = array[i - 1];
         }
-        massive[place] = key;
+        array[place] = key;
     }
 
-    private int searchForPlace(int[] massive, int key, int index) {
+    private int searchForPlace(int[] array, int key, int index) {
         do {
             index--;
-        } while ((massive[index] > key) && (index > 0));
-        if (massive[index] < key) {
+        } while ((array[index] > key) && (index > 0));
+        if (array[index] < key) {
             index++;
         }
-        System.out.println("Place: " + index);
         return index;
     }
 
-    public void mergeSort(int[] massive, int leftBound, int rightBound) {
+    public void mergeSort(int[] array, int leftBound, int rightBound) {
 
         if (leftBound < rightBound) {
             int massiveCenter = (leftBound + rightBound) / 2;
-            mergeSort(massive, leftBound, massiveCenter);
-            mergeSort(massive, massiveCenter + 1, rightBound);
-            mergeTwoMassives(massive, leftBound, rightBound, massiveCenter);
+            mergeSort(array, leftBound, massiveCenter);
+            mergeSort(array, massiveCenter + 1, rightBound);
+            mergeTwoMassives(array, leftBound, rightBound, massiveCenter);
         }
 
     }
 
-    private void mergeTwoMassives(int[] massive, int leftBound, int rightBound, int border) {
+    private void mergeTwoMassives(int[] array, int leftBound, int rightBound, int border) {
         int[] buffer = new int[rightBound - leftBound + 1];
         int leftindex = leftBound;
         int rightIndex = border + 1;
         int resultIndex = 0;
         while ((leftindex <= border) && (rightIndex <= rightBound)) {
-            if (massive[leftindex] < massive[rightIndex]) {
-                buffer[resultIndex] = massive[leftindex];
+            if (array[leftindex] < array[rightIndex]) {
+                buffer[resultIndex] = array[leftindex];
                 resultIndex++;
                 leftindex++;
             } else {
-                buffer[resultIndex] = massive[rightIndex];
+                buffer[resultIndex] = array[rightIndex];
                 resultIndex++;
                 rightIndex++;
             }
         }
         if (leftindex <= border) {
             for (int i = leftindex; i <= border; i++) {
-                buffer[resultIndex] = massive[i];
+                buffer[resultIndex] = array[i];
                 resultIndex++;
             }
 
         } else if (rightIndex <= rightBound) {
             for (int i = rightIndex; i <= rightBound; i++) {
-                buffer[resultIndex] = massive[i];
+                buffer[resultIndex] = array[i];
                 resultIndex++;
             }
         }
 
         for (int i = leftBound, j = 0; i <= rightBound; i++, j++) {
-            massive[i] = buffer[j];
+            array[i] = buffer[j];
         }
-        System.out.println("Changed streak: ");
-        printMassive(buffer);
-        System.out.println("Whole massive: ");
-        printMassive(massive);
     }
 
-    public void quickSort(int[] massive, int leftBound, int rightBound) {
-        //System.out.println(leftBound + " " + rightBound);
-        //printMassive(massive);
+    public void quickSort(int[] array, int leftBound, int rightBound) {
         int leftIndex = leftBound;
         int rightIndex = rightBound;
-        int currentMin = minimalValue(massive, leftBound, rightBound);
-        int currentMax = maximumValue(massive, leftBound, rightBound);
+        int currentMin = minimalValue(array, leftBound, rightBound);
+        int currentMax = maximumValue(array, leftBound, rightBound);
         int mediana = (currentMin + currentMax) / 2;
         while (leftIndex < rightIndex) {
-            while ((massive[leftIndex] < mediana) && (leftIndex < rightBound)) {
+            while ((array[leftIndex] < mediana) && (leftIndex < rightBound)) {
                 leftIndex++;
             }
-            while ((massive[rightIndex] > mediana) && (rightIndex > leftBound)) {
+            while ((array[rightIndex] > mediana) && (rightIndex > leftBound)) {
                 rightIndex--;
             }
             if (leftIndex < rightIndex) {
-                int temporaryValue = massive[leftIndex];
-                massive[leftIndex] = massive[rightIndex];
-                massive[rightIndex] = temporaryValue;
+                int temporaryValue = array[leftIndex];
+                array[leftIndex] = array[rightIndex];
+                array[rightIndex] = temporaryValue;
             }
         }
         if ((rightIndex > leftBound) && (rightBound - leftBound > 1)) {
-            quickSort(massive, leftBound, rightIndex);
+            quickSort(array, leftBound, rightIndex);
         }
 
         if ((leftIndex < rightBound) && (rightBound - leftBound > 1)) {
-            quickSort(massive, leftIndex, rightBound);
+            quickSort(array, leftIndex, rightBound);
         }
 
     }
 
     public static void main(String[] args) {
         ExtremumsAndSorting example = new ExtremumsAndSorting();
-        int[] someMassive = {3, 2, 0, 7, -5, 4};
-        //System.out.println("Minimum element: " + example.minimalValue(someMassive));
-        //System.out.println("Maximum element: " + example.maximumValue(someMassive));
-        //example.insertionSort(someMassive);
-        //example.mergeSort(someMassive, 0, someMassive.length - 1);
-        example.quickSort(someMassive, 0, someMassive.length - 1);
-        printMassive(someMassive);
+        int[] someArray = {-6, 2, 0, 7, -5, 4};
+        System.out.println("Minimum element: " + example.minimalValue(someArray));
+        System.out.println("Maximum element: " + example.maximumValue(someArray));
+        //example.insertionSort(someArray);
+        //example.mergeSort(someArray, 0, someArray.length - 1);
+        example.quickSort(someArray, 0, someArray.length - 1);
+        printMassive(someArray);
 
     }
 
-    public static void printMassive(int[] massive) {
-        for (int i = 0; i < massive.length; i++) {
-            System.out.print(massive[i] + " ");
+    public static void printMassive(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
         System.out.println();
     }
