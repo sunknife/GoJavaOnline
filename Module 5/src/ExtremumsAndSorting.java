@@ -1,5 +1,6 @@
 public class ExtremumsAndSorting {
     public int minimalValue(int[] array) {
+        if (isArrayEmpty(array)) return 0;
         int minimalElement = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] < minimalElement) {
@@ -10,6 +11,7 @@ public class ExtremumsAndSorting {
     }
 
     public int minimalValue(int[] array, int leftBound, int rightBound) {
+        if (isArrayEmpty(array)) return 0;
         int minimalElement = array[leftBound];
         for (int i = leftBound + 1; i <= rightBound; i++) {
             if (array[i] < minimalElement) {
@@ -20,6 +22,7 @@ public class ExtremumsAndSorting {
     }
 
     public int maximumValue(int[] array, int leftBound, int rightBound) {
+        if (isArrayEmpty(array)) return 0;
         int maximumElement = array[leftBound];
         for (int i = leftBound + 1; i <= rightBound; i++) {
             if (array[i] > maximumElement) {
@@ -30,6 +33,7 @@ public class ExtremumsAndSorting {
     }
 
     public int maximumValue(int[] array) {
+        if (isArrayEmpty(array)) return 0;
         int maximumElement = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] > maximumElement) {
@@ -40,6 +44,7 @@ public class ExtremumsAndSorting {
     }
 
     public void insertionSort(int[] array) {
+        if (isArrayEmpty(array)) return;
         for (int i = 1; i < array.length; i++) {
             int key = array[i];
             if (key < array[i - 1]) {
@@ -67,6 +72,7 @@ public class ExtremumsAndSorting {
     }
 
     public void mergeSort(int[] array, int leftBound, int rightBound) {
+        if (isArrayEmpty(array)) return;
 
         if (leftBound < rightBound) {
             int massiveCenter = (leftBound + rightBound) / 2;
@@ -112,6 +118,7 @@ public class ExtremumsAndSorting {
     }
 
     public void quickSort(int[] array, int leftBound, int rightBound) {
+        if (isArrayEmpty(array)) return;
         int leftIndex = leftBound;
         int rightIndex = rightBound;
         int currentMin = minimalValue(array, leftBound, rightBound);
@@ -153,10 +160,23 @@ public class ExtremumsAndSorting {
     }
 
     public static void printMassive(int[] array) {
+        if (isArrayEmpty(array)) return;
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
         System.out.println();
+    }
+
+    private static boolean isArrayEmpty(int[] array) {
+        if (array == null) {
+            System.out.println("Your array reference has no data.");
+            return true;
+        } else if (array.length == 0) {
+            System.out.println("Array is empty!");
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
