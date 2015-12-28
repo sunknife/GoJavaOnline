@@ -1,3 +1,5 @@
+package instruments;
+
 public class MusicalStore {
     MusicalInstrument[] instruments;
 

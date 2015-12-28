@@ -1,3 +1,5 @@
+package flowers;
+
 public class BouquetOfFlowers {
     Flower[] bouquet;
 
