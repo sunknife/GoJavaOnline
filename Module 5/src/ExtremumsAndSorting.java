@@ -148,7 +148,7 @@ public class ExtremumsAndSorting {
     }
 
     public static void main(String[] args) {
-        ExtremumsAndSorting example = new ExtremumsAndSorting();
+        /*ExtremumsAndSorting example = new ExtremumsAndSorting();
         int[] someArray = {-6, 2, 0, 7, -5, 4};
         System.out.println("Minimum element: " + example.minimalValue(someArray));
         System.out.println("Maximum element: " + example.maximumValue(someArray));
@@ -156,6 +156,10 @@ public class ExtremumsAndSorting {
         //example.mergeSort(someArray, 0, someArray.length - 1);
         example.quickSort(someArray, 0, someArray.length - 1);
         printMassive(someArray);
+        */
+        int[][] matrix = {{-2, 2, -3}, {-1, 1, 3}, {2, 0, -1}};
+        MatrixCalculator calculator = new MatrixCalculator();
+        System.out.println("Matrix determinant = " + calculator.determinant(matrix));
 
     }
 
