@@ -12,9 +12,10 @@ public class MatrixCalculator {
     }
 
     private double minor(int[][] matrix, int row, int column) {
+        if (matrix.length == 2) return 1;
         int[][] minor = createMinor(matrix, row, column);
         double determinant = 0;
-        if (minor.length == 1) return 1;
+
         for (int i = 0; i < minor.length; i++) {
             determinant += minor[0][i] * Math.pow(-1, 1 + i + 1) * minor(minor, 0, i);
         }
