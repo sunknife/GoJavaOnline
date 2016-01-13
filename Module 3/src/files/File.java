@@ -11,6 +11,7 @@ public class File {
     }
 
     private void setName(String name) throws IllegalFileNameException {
+        // Number 20 is an example of magic number anti-patern. Should be replaced by static constant variable
         if (name.length()>20) {
             throw new IllegalFileNameException();
         }

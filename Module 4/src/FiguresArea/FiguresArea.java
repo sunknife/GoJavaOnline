@@ -13,4 +13,5 @@ public class FiguresArea {
     public double circleArea(int radius) {
         return 3.14 * radius * radius;
     }
+    // 3.14 can be changed to Math.PI as more accurate value
 }

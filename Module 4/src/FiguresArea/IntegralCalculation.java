@@ -15,6 +15,7 @@ public class IntegralCalculation {
 
 
     public double monteCarloMethod(int accuracy) {
+        // Accuracy should be postitive. Can be replaced with method isPositive(int variable) to hide number
         if (accuracy <= 0) {
             System.out.println("Accuracy value shold be positive!");
             return 0;
