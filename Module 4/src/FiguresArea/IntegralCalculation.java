@@ -15,9 +15,9 @@ public class IntegralCalculation {
 
 
     public double monteCarloMethod(int accuracy) {
-        // Accuracy should be postitive. Can be replaced with method isPositive(int variable) to hide number
-        if (accuracy <= 0) {
-            System.out.println("Accuracy value shold be positive!");
+        // Accuracy should be positive. Can be replaced with method isPositive(int variable) to hide number
+        if (!isPositive(accuracy)) {
+            System.out.println("Accuracy value should be positive!");
             return 0;
         }
         double sum = 0.0;
@@ -27,6 +27,10 @@ public class IntegralCalculation {
             sum += this.f(i);
         }
         return sum * step;
+    }
+
+    private boolean isPositive(int number) {
+        return number > 0;
     }
 
     public static void main(String[] args) {
