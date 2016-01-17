@@ -19,4 +19,8 @@ public class File {
         }
         this.name=name;
     }
+
+    public String getName() {
+        return name;
+    }
 }
