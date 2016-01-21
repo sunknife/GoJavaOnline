@@ -1,4 +1,5 @@
 package flowers;
 
-public enum FlowerType {Astra,Chamomile,Rose,Tulip,Unknown
+public enum FlowerType {
+    Astra, Chamomile, Rose, Tulip, Unknown
 }

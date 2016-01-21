@@ -3,12 +3,13 @@ package flowers;
 public class Flower {
     private String name;
     protected FlowerType type;
+
     public Flower(String name) {
         setName(name);
-        type=FlowerType.Unknown;
+        type = FlowerType.Unknown;
     }
 
-    public Flower(){
+    public Flower() {
 
     }
 

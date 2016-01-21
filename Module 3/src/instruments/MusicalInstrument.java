@@ -4,11 +4,11 @@ public class MusicalInstrument {
     String name;
     private MusicalStore store;
 
-    public MusicalInstrument(String name){
+    public MusicalInstrument(String name) {
         this.setName(name);
     }
 
-    public MusicalInstrument(){
+    public MusicalInstrument() {
 
     }
 
@@ -20,10 +20,10 @@ public class MusicalInstrument {
         this.name = name;
     }
 
-    public void setStore(MusicalStore s){
+    public void setStore(MusicalStore s) {
     }
 
-    public MusicalStore getStore(){
+    public MusicalStore getStore() {
         return store;
     }
 }
