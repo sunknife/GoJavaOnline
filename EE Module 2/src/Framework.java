@@ -3,11 +3,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Framework<Object> implements Executor {
+public class Framework<T> implements Executor {
     Map<Task, Validator> tasks = new HashMap<>();
     boolean executionBegan = false;
-    List<Object> validResults = new ArrayList<>();
-    List<Object> invalidResults = new ArrayList<>();
+    List<T> validResults = new ArrayList<>();
+    List<T> invalidResults = new ArrayList<>();
 
 
     @Override
@@ -29,12 +29,12 @@ public class Framework<Object> implements Executor {
             currentTask.getKey().execute();
             if (currentTask.getValue() != null) {
                 if (currentTask.getValue().isValid(currentTask.getKey().getResult())) {
-                    validResults.add((Object)currentTask.getKey().getResult());
+                    validResults.add((T)currentTask.getKey().getResult());
                 } else {
-                    invalidResults.add((Object)currentTask.getKey().getResult());
+                    invalidResults.add((T)currentTask.getKey().getResult());
                 }
             } else {
-                validResults.add((Object)currentTask.getKey().getResult());
+                validResults.add((T)currentTask.getKey().getResult());
             }
         }
     }

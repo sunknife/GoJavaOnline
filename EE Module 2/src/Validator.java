@@ -1,3 +1,3 @@
-public interface Validator<Object> {
-    boolean isValid(Object result);
+public interface Validator<T> {
+    boolean isValid(T result);
 }

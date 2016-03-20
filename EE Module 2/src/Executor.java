@@ -1,15 +1,15 @@
 import java.util.List;
 
-public interface Executor<Object> {
-    void addTask(Task<? extends Object> task) throws ExecutionBeganException;
+public interface Executor<T> {
+    void addTask(Task<? extends T> task) throws ExecutionBeganException;
 
-    void addTask(Task<? extends Object> task, Validator <Object> validator) throws ExecutionBeganException;
+    void addTask(Task<? extends T> task, Validator <? super T> validator) throws ExecutionBeganException;
 
     void execute();
 
-    List<Object> getValidResults() throws ExecutionNotStartedException;
+    List<T> getValidResults() throws ExecutionNotStartedException;
 
-    List<Object> getInvalidResults() throws ExecutionNotStartedException;
+    List<T> getInvalidResults() throws ExecutionNotStartedException;
 
 }
 
