@@ -50,4 +50,8 @@ public class Framework<T> implements Executor {
         if (!executionBegan) throw new ExecutionNotStartedException();
         return invalidResults;
     }
+
+    public static void main(String[] args) {
+        System.out.println("Main program executed");
+    }
 }

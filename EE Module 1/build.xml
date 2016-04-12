@@ -1,0 +1,31 @@
+<project name = "Ant EE Module 1" basedir = "." >
+
+    <property name = "src" location = "src"/>
+    <property name="build" location="build"/>
+    <property name = "dist" location="dist"/>
+
+    <target name = "init">
+        <mkdir dir = "${build}"/>
+        <mkdir dir = "${dist}"/>
+    </target>
+
+    <target name="clean">
+        <delete dir= "${build}"/>
+        <delete dir = "${dist}"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac srcdir = "${src}" destdir = "${build}"/>
+    </target>
+
+    <target name = "dist" depends="compile">
+        <jar destfile = "${dist}/AntEEModule1.jar">
+            <fileset dir = "${build}"/>
+            <manifest>
+                <attribute name = "Main-Class" value = "Comparison"/>
+            </manifest>
+        </jar>
+    </target>
+
+
+</project>
