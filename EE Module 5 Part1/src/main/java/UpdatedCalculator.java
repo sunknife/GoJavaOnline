@@ -1,7 +1,9 @@
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class UpdatedCalculator {
     public static void main(String[] args) {
@@ -10,12 +12,16 @@ public class UpdatedCalculator {
         bean.execute();
     }
 
-    public void execute(){
+    public void execute() {
         BaseCalculator calculator = new BaseCalculator();
         calculator.addOperation('*', new Multiply());
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader scanner = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Please enter your expression:");
-        calculator.read(scanner.nextLine());
-        calculator.getResult();
+        try {
+            calculator.read(scanner.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(calculator.getResult());
     }
 }
