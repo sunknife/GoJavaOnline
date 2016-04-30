@@ -1,4 +1,3 @@
-import calculatorLibrary.BaseCalculator;
 import org.junit.BeforeClass;
 
 public class BaseCalculatorTest {

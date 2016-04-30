@@ -1,5 +1,3 @@
-package calculatorLibrary;
-
 public class Substraction implements BinaryOperation{
     public boolean isUnary() {
         return false;
