@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 public class UpdatedCalculator {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml","aop-context.xml");
         UpdatedCalculator bean = (UpdatedCalculator) applicationContext.getBean("bootstrap", UpdatedCalculator.class);
         bean.execute();
     }
