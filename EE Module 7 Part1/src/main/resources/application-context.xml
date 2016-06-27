@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="main" class="Main">
+        <property name="dishController" ref="dishController"/>
+        <property name="employeeController" ref="employeeController"/>
+        <property name="menuController" ref="menuController"/>
+        <property name="orderController" ref="orderController"/>
+        <property name="stockController" ref="stockController"/>
+        <property name="preparedDishController" ref="preparedDishController"/>
+    </bean>
+    <bean id="dishController" class="controllers.DishController">
+        <property name="dishDao" ref="dishDao"/>
+    </bean>
+    <bean id="dishDao" class="hibernate.HDishDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="employeeController" class="controllers.EmployeeController">
+        <property name="employeeDao" ref="employeeDao"/>
+    </bean>
+    <bean id="employeeDao" class="hibernate.HEmployeeDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="menuController" class="controllers.MenuController">
+        <property name="menuDao" ref="menuDao"/>
+    </bean>
+    <bean id="menuDao" class="hibernate.HMenuDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="orderController" class="controllers.OrderController">
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
+    <bean id="orderDao" class="hibernate.HOrderDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="stockController" class="controllers.StockController">
+        <property name="stockDao" ref="stockDao"/>
+    </bean>
+    <bean id="stockDao" class="hibernate.HStockDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="preparedDishController" class="controllers.PreparedDishController">
+        <property name="preparedDishDao" ref="preparedDishDao"/>
+    </bean>
+    <bean id="preparedDishDao" class="hibernate.HPreparedDishDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+</beans>
