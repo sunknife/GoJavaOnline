@@ -28,13 +28,12 @@ public class Main {
         //System.out.println(dishController.findDish("Egg"));
         //dishController.deleteDish("Egg");
         //dishController.findAllDishes().forEach(System.out::println);
-        //employeeController.createEmployee(new Employee(4,"Biz","Bazizi",new Date(2016,04,15),"+380448888888",3,25000.5));
+
         //employeeController.deleteEmployee("Biz","Bazizi");
         //employeeController.findAll().forEach(System.out::println);
         //menuController.createMenu(new Menu(2,"Abra"));
         //menuController.deleteMenu("Abra");
         //menuController.findAllMenus().forEach(System.out::println);
-        //orderController.createOrder(new Order(4,3,2,true));
         //orderController.closeOrder(4);
         //orderController.deleteOrder(4);
         //orderController.findAllClosedOrders().forEach(System.out::println);
@@ -43,8 +42,20 @@ public class Main {
         //stockController.changeIngredientQuantity(1,7);
         //stockController.findAllIngredients().forEach(System.out::println);
         //System.out.println(stockController.findIngredient("Egg"));
-        //preparedDishController.addPreparedDish(new PreparedDish(3,1,3,2,new Date(2016,06,27)));
+        preparedDishController.addPreparedDish(new PreparedDish(3,1,3,2,new Date(2016,06,27)));
         //preparedDishController.findAllPreparedDishes().forEach(System.out::println);
+        /*Waiter lola = new Waiter();
+        lola.setName("Lola");
+        lola.setSurname("Mahina");
+        lola.setBirthDate(new Date(2000,12,12));
+        lola.setId(4);
+        lola.setPositionID(2);
+        lola.setSalary(23000.0);
+        lola.setTelephoneNumber("+380441111111");
+        employeeController.createEmployee(lola);
+        orderController.createOrder(new Order(4,4,3,true));*/
+        //employeeController.printAllEmployees();
+        //dishController.findAllDishes().forEach(System.out::println);
 
     }
 

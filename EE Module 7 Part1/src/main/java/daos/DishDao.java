@@ -12,5 +12,8 @@ public interface DishDao {
 
     Dish findDish(String name);
 
+    Dish findDish(int id);
+
     List<Dish> findAllDishes();
+
 }

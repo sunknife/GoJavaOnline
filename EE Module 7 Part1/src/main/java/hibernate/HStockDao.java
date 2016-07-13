@@ -31,7 +31,7 @@ public class HStockDao implements StockDao{
     @Override
     public void changeIngredientQuantity(int id, int newQuantity) {
         Stock ingredient = findIngredient(id);
-        ingredient.setQuantity(newQuantity);
+        ingredient.setQuantity(ingredient.getQuantity()+newQuantity);
         sessionFactory.getCurrentSession().update(ingredient);
     }
 

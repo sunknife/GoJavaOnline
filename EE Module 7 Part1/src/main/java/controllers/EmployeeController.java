@@ -34,4 +34,9 @@ public class EmployeeController {
     public List<Employee> findAll() {
         return employeeDao.findAll();
     }
+
+    @Transactional
+    public void printAllEmployees(){
+        employeeDao.findAll().forEach(System.out::println);
+    }
 }

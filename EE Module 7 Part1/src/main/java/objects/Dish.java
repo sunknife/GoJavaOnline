@@ -1,7 +1,12 @@
 package objects;
 
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -20,13 +25,13 @@ public class Dish {
     @Column(name = "weight")
     private int weight;
 
-    /*@ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "DISH_INGREDIENTS",
-            joinColumns = @JoinColumn(name = "INGREDIENT_ID"),
-            inverseJoinColumns = @JoinColumn(name = "QUANTITY")
-    )*/
-    //private Map<Integer, Double> ingredients;
+            joinColumns = @JoinColumn(name = "dish_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
+    private List<Ingredient> ingredients;
     public Dish(int id, String name, String category, double cost, int weight) {
         this.id = id;
         this.name = name;
@@ -54,6 +59,7 @@ public class Dish {
                 ", category='" + category + '\'' +
                 ", cost=" + cost +
                 ", weight=" + weight +
+                ", ingredients=" +ingredients+
                 '}';
     }
 
@@ -85,7 +91,17 @@ public class Dish {
         return weight;
     }
 
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+
+    }
+
     public void setWeight(int weight) {
         this.weight = weight;
+
     }
 }

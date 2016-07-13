@@ -2,7 +2,10 @@ package hibernate;
 
 
 import daos.PreparedDishDao;
+import objects.Dish;
 import objects.PreparedDish;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.util.List;

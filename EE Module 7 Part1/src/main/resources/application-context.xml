@@ -46,6 +46,8 @@
     </bean>
     <bean id="preparedDishController" class="controllers.PreparedDishController">
         <property name="preparedDishDao" ref="preparedDishDao"/>
+        <property name="dishDao" ref="dishDao"/>
+        <property name="stockDao" ref="stockDao"/>
     </bean>
     <bean id="preparedDishDao" class="hibernate.HPreparedDishDao">
         <property name="sessionFactory" ref="sessionFactory"/>
