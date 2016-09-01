@@ -29,4 +29,9 @@ public class MenuService {
     public Dish getDishByName(String dishName) {
         return dishDao.findDish(dishName);
     }
+
+    @Transactional
+    public Menu findMenu(String menuName) {
+        return menuDao.findMenu(menuName);
+    }
 }

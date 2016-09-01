@@ -18,4 +18,9 @@ public class EmployeeService {
     public void setEmployeeDao(EmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
     }
+
+    @Transactional
+    public Employee findEmployee(String employeeSurname, String employeeName) {
+        return employeeDao.searchForEmployee(employeeSurname,employeeName);
+    }
 }

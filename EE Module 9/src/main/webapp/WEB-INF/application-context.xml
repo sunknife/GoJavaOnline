@@ -10,4 +10,6 @@
     <bean id="dishDao" class="hibernate.HDishDao"/>
     <bean id="employeeService" class="service.EmployeeService"/>
     <bean id="employeeDao" class="hibernate.HEmployeeDao"/>
+    <bean id="orderService" class="service.OrderService"/>
+    <bean id="orderDao" class="hibernate.HOrderDao"/>
 </beans>

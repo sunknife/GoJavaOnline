@@ -23,4 +23,12 @@
     
     <mvc:resources mapping="/resources/**" location="/resources/images"/>
 
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="messageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="messageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
 </beans>

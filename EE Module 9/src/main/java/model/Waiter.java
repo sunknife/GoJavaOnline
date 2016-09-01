@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 public class Waiter extends Employee {
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id")
     private List<Order> orders;
 
